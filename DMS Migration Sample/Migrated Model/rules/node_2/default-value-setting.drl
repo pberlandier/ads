@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>default-value-setting</name>
+  <uuid>60ea3af3-4aee-4bb6-b97c-a4efbe1d3946</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[set 'the buyer' to a new Buyer where
+        the monthly income is 1500 ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

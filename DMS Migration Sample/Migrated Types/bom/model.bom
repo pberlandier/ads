@@ -1,0 +1,118 @@
+
+
+public class Buyer
+        property "ads.typeId" "3"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "Buyer"
+        property "de.generated" "true"
+{
+    public double monthlyIncome
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "monthly income"
+                property update "true";
+    public Buyer(double monthlyIncome)
+                property autoExpand "true"
+                property groups "BALA"
+                property prototype "true";
+    public Buyer()
+                property "dataio.default" "true";
+}
+
+public class Risk
+        extends java.lang.Enum
+        property "ads.typeId" "4"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "Risk"
+        property "de.generated" "true"
+{
+    domain {static high, static low, static medium}
+    public static final readonly Risk high
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "High";
+    public static final readonly Risk low
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Low";
+    public static final readonly Risk medium
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Medium";
+}
+
+public class Vehicle
+        property "ads.typeId" "5"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "Vehicle"
+        property "de.generated" "true"
+{
+    public VehicleCondition condition
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "condition"
+                property update "true";
+    public java.util.List optionses domain 0,* class VehicleOption
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "optionses"
+                property update "true";
+    public double price
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "price"
+                property update "true";
+    public Vehicle(VehicleCondition condition, 
+        java.util.List optionses domain 0,* class VehicleOption, 
+        double price)
+                property autoExpand "true"
+                property groups "BALA"
+                property prototype "true";
+    public Vehicle()
+                property "dataio.default" "true";
+    public void addTo_optionses(VehicleOption optionses)
+                property collectionAttribute "optionses"
+                property update "true";
+    public void clear_optionses()
+                property collectionAttribute "optionses"
+                property update "true";
+    public void removeFrom_optionses(VehicleOption optionses)
+                property collectionAttribute "optionses"
+                property update "true";
+    public void set_optionses(java.util.Collection optionses domain 0,* class VehicleOption)
+                property collectionAttribute "optionses"
+                property update "true";
+}
+
+public class VehicleCondition
+        extends java.lang.Enum
+        property "ads.typeId" "1"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "Vehicle Condition"
+        property "de.generated" "true"
+{
+    domain {static excellent, static fair, static good, static veryGood}
+    public static final readonly VehicleCondition excellent
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Excellent";
+    public static final readonly VehicleCondition fair
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Fair";
+    public static final readonly VehicleCondition good
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Good";
+    public static final readonly VehicleCondition veryGood
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Very Good";
+}
+
+public class VehicleOption
+        extends java.lang.Enum
+        property "ads.typeId" "2"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "Vehicle Option"
+        property "de.generated" "true"
+{
+    domain {static cruiseControl, static moonRoof, static newEnumValue, static parkingSensor}
+    public static final readonly VehicleOption cruiseControl
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Cruise Control";
+    public static final readonly VehicleOption moonRoof
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Moon Roof";
+    public static final readonly VehicleOption newEnumValue
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Automatic Transmission";
+    public static final readonly VehicleOption parkingSensor
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Parking Sensor";
+}
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>approve medium risk with good collateral</name>
+  <uuid>7f40ae97-d178-4174-88b5-c0bb3c889634</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[if 
+    'the risk' is Medium
+    and the condition of 'the vehicle' is Excellent
+then
+    set decision to true ;
+
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

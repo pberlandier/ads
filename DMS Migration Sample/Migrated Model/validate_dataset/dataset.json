@@ -1,0 +1,12 @@
+{
+  "theVehicle": {
+    "condition": "Excellent",
+    "optionses": [
+      "Automatic Transmission"
+    ],
+    "price": 9000
+  },
+  "theBuyer": {
+    "monthly income": 5400
+  }
+}

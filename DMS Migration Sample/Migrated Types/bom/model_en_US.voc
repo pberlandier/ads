@@ -1,0 +1,40 @@
+
+# Buyer
+Buyer#concept.label = Buyer
+Buyer.Buyer(double)#phrase.navigation = a new {Buyer} where {0, monthly income}
+Buyer.monthlyIncome#phrase.action = set the monthly income of {this} to {monthly income}
+Buyer.monthlyIncome#phrase.navigation = {monthly income} of {this}
+
+# Risk
+Risk#concept.label = Risk
+Risk.high#instance.label = High
+Risk.low#instance.label = Low
+Risk.medium#instance.label = Medium
+
+# Vehicle
+Vehicle#concept.label = Vehicle
+Vehicle.Vehicle(VehicleCondition,java.util.List,double)#phrase.navigation = a new {Vehicle} where {0, condition} {1, options} {2, price}
+Vehicle.addTo_optionses(VehicleOption)#phrase.action = add {0} to the optionses of {this}
+Vehicle.clear_optionses()#phrase.action = clear the optionses of {this}
+Vehicle.condition#phrase.action = set the condition of {this} to {condition}
+Vehicle.condition#phrase.clearer = clear the condition of {this}
+Vehicle.condition#phrase.navigation = {condition} of {this}
+Vehicle.optionses#phrase.action = set the optionses of {this} to {options}
+Vehicle.optionses#phrase.navigation = {options} of {this}
+Vehicle.price#phrase.action = set the price of {this} to {price}
+Vehicle.price#phrase.navigation = {price} of {this}
+Vehicle.removeFrom_optionses(VehicleOption)#phrase.action = remove {0} from the optionses of {this}
+
+# VehicleCondition
+VehicleCondition#concept.label = Vehicle Condition
+VehicleCondition.excellent#instance.label = Excellent
+VehicleCondition.fair#instance.label = Fair
+VehicleCondition.good#instance.label = Good
+VehicleCondition.veryGood#instance.label = Very Good
+
+# VehicleOption
+VehicleOption#concept.label = Vehicle Option
+VehicleOption.cruiseControl#instance.label = Cruise Control
+VehicleOption.moonRoof#instance.label = Moon Roof
+VehicleOption.newEnumValue#instance.label = Automatic Transmission
+VehicleOption.parkingSensor#instance.label = Parking Sensor

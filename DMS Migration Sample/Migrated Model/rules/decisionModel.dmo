@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>669a2b0c-a347-4c97-a373-b8b72adc8564</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <inputData id="node_0" name="vehicle">
+        <description>vehicle data node</description>
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="Vehicle" collection="false" name="the vehicle"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_0_ii" name="vehicle" typeRef="Vehicle"/>
+    </inputData>
+    <decision id="node_1" name="preapproval">
+        <description>preapproval decision node</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="Vehicle" collection="false" name="the vehicle"/>
+                <input bomType="Risk" collection="false" name="the risk"/>
+                <output bomType="java.lang.Boolean" collection="false" name="the preapproval"/>
+                <rule defaultRule="false" href="node_1/approve%20low%20risk.drl" kind="BusinessRule" name="approve low risk"/>
+                <rule defaultRule="false" href="node_1/approve%20medium%20risk%20with%20good%20collateral.drl" kind="BusinessRule" name="approve medium risk with good collateral"/>
+                <rule defaultRule="false" href="node_1/reject%20high%20risk.drl" kind="BusinessRule" name="reject high risk"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="preapproval" typeRef="java.lang.Boolean"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_2" name="buyer">
+        <description>buyer data node</description>
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="Buyer" collection="false" name="the buyer"/>
+                <rule defaultRule="true" href="node_2/default-value-setting.drl" kind="BusinessRule" name="default-value-setting"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_2_ii" name="buyer" typeRef="Buyer"/>
+    </inputData>
+    <decision id="node_3" name="risk">
+        <description>risk decision node</description>
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="Vehicle" collection="false" name="the vehicle"/>
+                <input bomType="Buyer" collection="false" name="the buyer"/>
+                <output bomType="Risk" collection="false" name="the risk"/>
+                <rule defaultRule="true" href="node_3/output-default-setting.drl" kind="BusinessRule" name="output-default-setting"/>
+                <rule defaultRule="false" href="node_3/qualify%20income.dmt" kind="DecisionTable" name="qualify income"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_3_ii" name="risk" typeRef="Risk"/>
+        <informationRequirement>
+            <requiredInput href="#node_0"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+    </decision>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
